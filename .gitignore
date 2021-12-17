@@ -1,3 +1,10 @@
+# User history
+*.user_history
+*.data
+.data/
+
+# nothing
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
