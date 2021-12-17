@@ -57,7 +57,13 @@ programs = {
     "screen_vga_thinkpad": "xrandr --output HDMI-0 --off --output LVDS1 --off --output VGA1 --mode 1920x1200 --pos 0x0 --rotate normal",
 }
 
+user_history = []
+
+filenames = []
+
 output = []
+
+placeholders = {}
 
 default_color = None
 

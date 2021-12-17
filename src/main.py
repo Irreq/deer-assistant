@@ -23,7 +23,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 LANDING = []
 
-config.default_color = c.y
+config.default_color = config.placeholders["<YELLOW>"]
 
 
 

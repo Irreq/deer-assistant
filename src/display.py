@@ -15,13 +15,25 @@ from . import config, c
 from .functions import _get_terminal_size_linux
 
 def response(message, color=config.default_color):
-    print("\n{0}{1}{2}".format(color, message, c.w))
+    print("\n{0}{1}{2}".format(color, message, config.placeholders["<WHITE>"]))
+
+def generate(lines: list()):
+    """Generate dynamic text from a static text (list)"""
+    result = []
+    for i, line in enumerate(lines):
+        # Replace all placeholders with correct values
+        for item in [t for t in config.placeholders.keys() if t in line]:
+            line = line.replace(item, config.placeholders[item])
+
+        result.append(line.replace("\n", ""))
+    return result
 
 class Display:
 
     def __init__(self):
         config.display = self
         self.response = response
+        self.generate = generate
         self.iteration = 0
         self.x, self.y = _get_terminal_size_linux()
         self.run()
@@ -54,6 +66,9 @@ class Display:
 
     def pprint(self, text):
         print("\n"+text)
+
+    # def regular_output(self, text, lines=False, reset=False):
+    #     self.F(None, (2), (self.y//2-10), lines=lines, )
 
     def output(self, text, lines=False, reset=False):
         if reset:

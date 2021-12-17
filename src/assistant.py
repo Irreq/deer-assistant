@@ -32,10 +32,16 @@ class Assistant:
 
             # self.iteration += 1
 
-    def handle_keypress(self, ui):
+    def handle_keypress(self, userinput):
+
+        config.user_history.append(userinput)
+
+        userinput = userinput.split()
+
+        ui = userinput[0]
 
         if ui in ("exit", "quit"):
-            config.display.response("Deer-Assistant is shutting down")
+            config.display.response("Deer-Assistant is shutting down\n")
             functions.terminate()
 
         elif ui == "spotify":
@@ -43,3 +49,8 @@ class Assistant:
 
         elif ui in ("iteration", "iter"):
             response(str(self.iteration))
+
+        else:
+            # Generate a file if user input matches that file, eg. 'help'
+            if [ui for _ in config.filenames if ui in config.filenames]:
+                functions.make_file(ui)
