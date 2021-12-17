@@ -1,7 +1,6 @@
 # User history
-*.user_history
-*.data
-.data/
+.user_history
+.data
 
 # nothing
 
