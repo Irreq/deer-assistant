@@ -63,11 +63,12 @@ def terminate():
 
     # config.user_history
 
-    with open("/home/irreq/github/deer-assistant/.data/.user_history", "a") as f:
-        for line in config.user_history:
-            # print(line)
-            f.write(line+"\n")
-        f.close()
+    if config.logging:
+        with open(".data/.user_history", "a") as f:
+            for line in config.user_history:
+                # print(line)
+                f.write(line+"\n")
+            f.close()
 
     # time.sleep(2)
 

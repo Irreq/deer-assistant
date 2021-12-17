@@ -8,6 +8,8 @@
 
 """File that holds global variables for the program"""
 
+logging = False
+
 things_to_display = ["",]
 
 functions_to_display = ["battery", "storage_test", "memory", "cpu", "datetime"]
