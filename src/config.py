@@ -59,6 +59,42 @@ alias = {
     "screen_vga_thinkpad": "xrandr --output HDMI-0 --off --output LVDS1 --off --output VGA1 --mode 1920x1200 --pos 0x0 --rotate normal",
 }
 
+
+distro_skeleton = {
+"Venom Linux": {"package_manager": ("scratch", {"install": "scratch install $",
+                                                "sync": "scratch sync",
+                                                "search": "scratch search $",
+                                                "upgrade": "scratch upgrade $ -y",
+                                                "remove": "scratch remove $ -y",
+                                                "info": "scratch info $",
+                                                "list": "scratch installed"})
+                },
+
+"Arch Linux": {"package_manager": ("pacman", {"install": "pacman -S $",
+                                              "sync": "pacman -S",
+                                              "search": "pacman -Ss $",
+                                              "upgrade": "pacman -U $",
+                                              "remove": "pacman -R $",
+                                              "info": "pacman -Qi",
+                                              "list": "pacman -Qe"})
+                },
+
+"Void Linux": {"package_manager": ("xbps", {})},
+
+# Skeleton
+"GENERIC Linux": {"package_manager": ("MANAGER", {"install": "METHOD",
+                                               "sync": "METHOD",
+                                               "search": "METHOD",
+                                               "upgrade": "METHOD",
+                                               "remove": "METHOD",
+                                               "info": "METHOD",
+                                               "list": "METHOD"})
+}
+}
+
+
+system = None
+
 user_history = []
 
 filenames = []

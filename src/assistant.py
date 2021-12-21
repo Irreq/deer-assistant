@@ -46,18 +46,20 @@ class Assistant:
             if "search" in ddd:
                 ddd = ddd[len("pkg search "):]
 
-            output = subprocess.getoutput("pacman -Ss {}".format(ddd))
+            # output = subprocess.getoutput("pacman -Ss {}".format(ddd))
             # print(output)
             # config.display.response("You emulated: 'pkg search python3' (for Pacman)")
             from prog import package_manager_parser as pmp
 
-            lines = pmp.main(output)
+            lines = pmp.main(ddd)
 
             result = config.display.generate(lines)
 
             print()
             for i in result:
                 print(i)
+
+            return
 
         if ui in ("exit", "quit"):
             config.display.response("Deer-Assistant is shutting down\n")
@@ -80,4 +82,4 @@ class Assistant:
 
             else:
                 output = subprocess.getoutput("{}".format(ddd))
-                print(output)
+                print("\n"+output)

@@ -102,6 +102,24 @@ def initiate_cache():
     config.filenames = next(os.walk("lib/"), (None, None, []))[2]  # [] if no file
     config.filenames = [i.replace(".txt","") for i in config.filenames]
 
+
+    with open("/etc/os-release", "r") as f:
+        res = f.readlines()
+        f.close()
+
+    # Determining system specific information
+
+    name = res[0][6:-2]
+
+    if name not in config.distro_skeleton:
+        name = "GENERIC Linux"
+
+    config.system = (name, config.distro_skeleton[name])
+
+
+    # print(config.system)
+    # exit()
+
 def get_from_file(path):
     content=open(path, "r").readline().strip()
     return content
