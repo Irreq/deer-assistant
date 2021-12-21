@@ -6,7 +6,7 @@
 # Author: irreq (irreq@protonmail.com)
 # Date: 17/12/2021
 
-import time, readline
+import time, readline, subprocess
 
 from . import config, functions
 
@@ -45,7 +45,7 @@ class Assistant:
         if ddd.startswith("pkg "):
             if "search" in ddd:
                 ddd = ddd[len("pkg search "):]
-            import subprocess
+
             output = subprocess.getoutput("pacman -Ss {}".format(ddd))
             # print(output)
             # config.display.response("You emulated: 'pkg search python3' (for Pacman)")
@@ -77,3 +77,7 @@ class Assistant:
             # Generate a file if user input matches that file, eg. 'help'
             if [ui for _ in config.filenames if ui in config.filenames]:
                 functions.make_file(ui)
+
+            else:
+                output = subprocess.getoutput("{}".format(ddd))
+                print(output)
