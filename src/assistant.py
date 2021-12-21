@@ -40,11 +40,13 @@ class Assistant:
 
         ui = userinput[0]
 
-        if " ".join(userinput).startswith("pkg "):
-            if "search" in ui:
-                ui = ui[len("pkg search "):]
+        ddd = " ".join(userinput).startswith("pkg ")
+
+        if ddd:
+            if "search" in ddd:
+                ddd = ddd[len("pkg search "):]
             import subprocess
-            output = subprocess.getoutput("pacman -Ss {}".format(ui))
+            output = subprocess.getoutput("pacman -Ss {}".format(ddd))
             print(output)
             # config.display.response("You emulated: 'pkg search python3' (for Pacman)")
             from prog import package_manager_parser as pmp
