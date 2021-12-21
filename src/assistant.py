@@ -40,15 +40,12 @@ class Assistant:
 
         ui = userinput[0]
 
-        if ui in ("exit", "quit"):
-            config.display.response("Deer-Assistant is shutting down\n")
-            functions.terminate()
-
-        elif ui.startswith("pkg "):
+        if " ".join(userinput).startswith("pkg "):
             if "search" in ui:
                 ui = ui[len("pkg search "):]
             import subprocess
             output = subprocess.getoutput("pacman -Ss {}".format(ui))
+            print(output)
             # config.display.response("You emulated: 'pkg search python3' (for Pacman)")
             from prog import package_manager_parser as pmp
 
@@ -59,6 +56,12 @@ class Assistant:
             print()
             for i in result:
                 print(i)
+
+        if ui in ("exit", "quit"):
+            config.display.response("Deer-Assistant is shutting down\n")
+            functions.terminate()
+
+
 
 
 
