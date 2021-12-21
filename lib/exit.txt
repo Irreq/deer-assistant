@@ -1,0 +1,3 @@
+<YELLOW>Deer-Assistant - <BLUE>https://github.com/Irreq/deer-assistant
+<YELLOW>Released under the MIT license
+(c) 2021 Irreq and contributors

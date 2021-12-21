@@ -1,0 +1,9 @@
+
+                             <RED>[INFORMATION]<RESET>
+
+This is a semi-dynamic all purpose assistant that sits on top of your terminal.
+The goal of this program is to aid the user in such a way, that they only need
+to exit the program when the computer is shutting down. Therefore, this program
+does not strictly follow the GNU philosophy of one program should only do one
+task. However one could view this program as being a meta-program that interacts
+with other programs on behalf of the user.

@@ -1,0 +1,6 @@
+
+<UNDERLINE><YELLOW>Help Topics<RESET>
+
+Enter <RED>help <topic><RESET> for specific help:
+
+  <RED>basic<RESET>    : Basics
