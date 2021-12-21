@@ -10,7 +10,7 @@ cyan = config.placeholders["<CYAN>"]
 magenta = config.placeholders["<MAGENTA>"]
 
 
-static = {}
+
 
 
 def first_word_in_string(string):
@@ -38,6 +38,8 @@ def info():
     pass
 
 def main(query, manager="pacman"):
+
+    static = {}
 
     text = ""
     first = 0
