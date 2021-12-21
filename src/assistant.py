@@ -12,7 +12,7 @@ from . import config, functions
 
 from .display import response
 
-def user_input(message="\n> "):
+def user_input(message="\n > "):
     return input(message)
 
 class Assistant:
@@ -43,6 +43,24 @@ class Assistant:
         if ui in ("exit", "quit"):
             config.display.response("Deer-Assistant is shutting down\n")
             functions.terminate()
+
+        elif ui.startswith("pkg "):
+            if "search" in ui:
+                ui = ui[len("pkg search "):]
+            import subprocess
+            output = subprocess.getoutput("pacman -Ss {}".format(ui))
+            # config.display.response("You emulated: 'pkg search python3' (for Pacman)")
+            from prog import package_manager_parser as pmp
+
+            lines = pmp.main(output)
+
+            result = config.display.generate(lines)
+
+            print()
+            for i in result:
+                print(i)
+
+
 
         elif ui == "spotify":
             config.display.response("Let's play some music!")

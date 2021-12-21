@@ -15,7 +15,7 @@ from . import config, c
 from .functions import _get_terminal_size_linux
 
 def response(message, color=config.default_color):
-    print("\n{0}{1}{2}".format(color, message, config.placeholders["<WHITE>"]))
+    print("\n {0}{1}{2}".format(color, message, config.placeholders["<WHITE>"]))
 
 def generate(lines: list()):
     """Generate dynamic text from a static text (list)"""
@@ -35,7 +35,12 @@ class Display:
         self.response = response
         self.generate = generate
         self.iteration = 0
-        self.x, self.y = _get_terminal_size_linux()
+
+        try:
+            self.x, self.y = _get_terminal_size_linux()
+
+        except TypeError:  # When running headless
+            self.x, self.y = 100, 50
         self.run()
 
 
