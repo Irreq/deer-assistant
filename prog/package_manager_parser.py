@@ -49,7 +49,7 @@ def main(query, manager="pacman"):
 
     # from re import finditer
 
-    print(232434234234)
+    # print(232434234234)
 
     finds = []
     for pattern in patterns:

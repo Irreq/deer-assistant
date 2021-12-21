@@ -47,7 +47,7 @@ class Assistant:
                 ddd = ddd[len("pkg search "):]
             import subprocess
             output = subprocess.getoutput("pacman -Ss {}".format(ddd))
-            print(output)
+            # print(output)
             # config.display.response("You emulated: 'pkg search python3' (for Pacman)")
             from prog import package_manager_parser as pmp
 
