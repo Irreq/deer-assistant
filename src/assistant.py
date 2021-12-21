@@ -40,9 +40,9 @@ class Assistant:
 
         ui = userinput[0]
 
-        ddd = " ".join(userinput).startswith("pkg ")
+        ddd = " ".join(userinput)
 
-        if ddd:
+        if ddd.startswith("pkg "):
             if "search" in ddd:
                 ddd = ddd[len("pkg search "):]
             import subprocess
