@@ -22,6 +22,8 @@ def first_word_in_string(string):
 
 def search(query):
 
+    print(f"{red}WARNING{reset} This function is under construction and is being really buggy")
+
     static = {}
 
     text = ""
