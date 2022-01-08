@@ -35,6 +35,9 @@ def search(query):
 
     manager, methods = config.system[1]["package_manager"]
 
+    # manager = "scratch"
+    # methods = {"search": "scratch search $"}
+
     output = subprocess.getoutput(methods["search"].replace("$", query))
 
     # Pacman
@@ -144,6 +147,8 @@ def search(query):
             for match in re.finditer(pattern, output, re.MULTILINE):
                 categories.append(match.span())
 
+        # print(categories)
+
         for i, find in enumerate(categories):
 
             # MUST FIX THIS ERROR SO THAT PACKAGES WON'T GO MISSING DURING SEARCH
@@ -155,6 +160,8 @@ def search(query):
             # find += (5, 5)
 
             next_word = categories[i+1]
+
+            # print(output[find[1]+5:next_word[0]]+"\n")
 
             # Match the name of the program +5 is to account for colors
             name, place = first_word_in_string(output[find[1]+5:next_word[0]])

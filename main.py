@@ -30,9 +30,10 @@ def test():
     from prog import package_manager_parser as pmp
     from src.display import Display
     config.display = Display()
-    config.display.response("You emulated: 'pkg search python3' (for Pacman)")
+    PACKAGE = "python3"
+    config.display.response("You emulated: 'pkg search {}' (for Pacman)".format(PACKAGE))
 
-    lines = pmp.main("python")
+    lines = pmp.main(PACKAGE)
 
     result = config.display.generate(lines)
 
@@ -43,7 +44,7 @@ def test():
     exit()
 
 if __name__ == "__main__":
-    # test()
+    test()
     functions.initiate_cache()
     lines = functions.getlines("lib/landing.txt")
     result = display.generate(lines)
