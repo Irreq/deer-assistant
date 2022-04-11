@@ -29,6 +29,7 @@ sys.path.append(path)
 def test():
     from prog import package_manager_parser as pmp
     from src.display import Display
+    functions.initiate_cache()
     config.display = Display()
     PACKAGE = "python3"
     config.display.response("You emulated: 'pkg search {}' (for Pacman)".format(PACKAGE))
