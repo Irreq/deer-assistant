@@ -22,7 +22,7 @@ def first_word_in_string(string):
 
 def search(query):
 
-    print(f"{red}WARNING{reset} This function is under construction and is being really buggy")
+    #print(f"{red}WARNING{reset} This function is under construction and is being really buggy")
 
     static = {}
 
@@ -114,7 +114,11 @@ def search(query):
 
             text += blue + grupp + reset
 
+        
         ress = ""
+
+        if categories == []:
+            ress += "No packages found for: " + query
 
         for gr in static:
             ress += "\n" + magenta + gr + reset + "\n"

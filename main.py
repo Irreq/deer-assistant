@@ -45,7 +45,7 @@ def test():
     exit()
 
 if __name__ == "__main__":
-    test()
+    # test()
     functions.initiate_cache()
     lines = functions.getlines("lib/landing.txt")
     result = display.generate(lines)
